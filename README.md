@@ -33,11 +33,15 @@ Installation:
     For some tablets, the maximum offline data allowed is 50MB, so consider this limit
     when choosing images, their size, and compression quality.
 
-6)  Edit the index.php file.
+6)  Copy your resume to the Portfolio directory, name it resume.pdf
 
-7)  Change the $SALT and $PASSWORD variables and save.
+7)  Edit the index.php file.
 
-8)  Copy the entire directory to your server.
+8)  Change the $SALT and $PASSWORD variables and save.
+
+9)  Edit the index.html, change my name to your name and your description.
+
+10)  Copy the entire directory to your server.
 
 Use:
 
