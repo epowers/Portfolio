@@ -74,8 +74,8 @@ function get_images( $category )
     return $files;
 }
 
-$SCRIPT = $_SERVER["SCRIPT_NAME"];
-$SCRIPT_DIR = dirname($SCRIPT);
+$SCRIPT = $_SERVER["REQUEST_URI"];
+$SCRIPT_DIR = dirname($_SERVER["SCRIPT_NAME"]);
 $QUERY = $_SERVER["QUERY_STRING"];
 
 if( $QUERY == "cache.manifest" ) {
@@ -112,7 +112,7 @@ EOF;
 } else if( $QUERY == "update" ) {
 
     header("Content-type: application/json");
-    header("Access-Control-Allow-Origin: " + $_SERVER["HTTP_HOST"]);
+    //header("Access-Control-Allow-Origin: " + $_SERVER["HTTP_HOST"]);
     header("Cache-Control: no-cache");
     print "{";
 

@@ -4,6 +4,10 @@ Portfolio
 A simple PHP web application that presents portfolio images with nice swipe of thumbnails and categories,
 and works offline with tablets and phones that support HTML5.
 
+Example:
+
+    http://www.mrpowers.com/Portfolio
+
 Installation:
 
 1)  Get the code from here:
@@ -26,6 +30,8 @@ Installation:
 
 5)  Copy pictures in JPG format underneath each of the category directories.
     Images will be displayed in alphabetical order, so name and number them appropriately.
+    For some tablets, the maximum offline data allowed is 50MB, so consider this limit
+    when choosing images, their size, and compression quality.
 
 6)  Edit the index.php file.
 
