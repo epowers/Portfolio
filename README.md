@@ -30,3 +30,18 @@ Installation:
 7)  Change the $SALT and $PASSWORD variables and save.
 
 8)  Copy the entire directory to your server.
+
+Use:
+
+Anyone who accesses the site will get the non-private images.  Users can swipe through categories and images,
+double-click on images to open them in the browser or image viewer.
+
+To access private images, type your password in the text field in the upper right and hit enter.
+
+DO NOT GIVE AWAY YOUR PASSWORD TO ANYONE.
+
+Once you have typed in your password, a special code will replace your password.  This code will expire
+automatically in 7 days.  Give the code to someone who wants to view the private categories.
+
+To use the application offline, bookmark it or add a home icon, then use the bookmark with the special code
+or your password once.  Wait a while to make sure all of the images download for offline use.
