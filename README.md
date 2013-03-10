@@ -8,6 +8,8 @@ Installation:
 
 1)  Get the code from here:
 
+    https://github.com/epowers/Portfolio.git
+
 2)  Create an "images" directory underneath the code directory.
 
 3)  Create category directories underneath the images directory.  These category directories
