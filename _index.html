@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html manifest="?cache.manifest">
     <head>
-        <meta charset="UTF-8">
-        <title>Eric Powers</title>
-        <meta name="description" content="Eric Powers - Software Developer">
+        <meta charset="UTF-8" />
+        <title>YOUR NAME HERE</title>
+        <meta name="description" content="YOUR NAME HERE - Description of your portfolio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <script src="jquery.min.js"></script>
         <script src="Animate.js"></script>
         <script src="Scroller.js"></script>
@@ -20,10 +21,12 @@
 		.scrollx { position: absolute; padding: 10px; white-space: nowrap; }
         .scrollx img { padding: 5px; }
         .enlarge_message { display: inline-block; margin-left: 2em; font-size: 50%; }
+        form { position: absolute; bottom: 0px; left: 0px; z-index: 1; }
 	</style>
     </head>
     <body>
-        <div class="title"><a href="resume.pdf">Eric Powers</a><form><input type="text" name="code" id="code" /></form></div>
+        <div class="title"><a href="resume.pdf">YOUR NAME HERE</a></div>
+        <form><input type="text" name="code" id="code" /></form>
         <script>
             $(function(){
                 if( window.navigator.onLine ) {
@@ -96,7 +99,7 @@
                             var src = "?thumbnail=" + category + '/' + image;
                             var img = $('<img/>');
                             img.attr('src',src);
-                            img.attr('width','320');
+                            img.css('width','320px');
                             img.dblclick((function(href){return function(e){
                                 window.location = href;
                             };})(href));
