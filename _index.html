@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html manifest="?cache.manifest">
+    <head>
+        <meta charset="UTF-8">
+        <title>Danielle Powers</title>
+        <meta name="description" content="Danielle Powers - Visual Development Artist, Texture Painter">
+        <script src="jquery.min.js"></script>
+        <script src="Animate.js"></script>
+        <script src="Scroller.js"></script>
+        <script src="EasyScroller.js"></script>
+	<style type="text/css">
+		body { background-color: #222; overflow: hidden; padding: 0; }
+        .title { position: absolute; top: 0; left: 0; color: white; font-size: 200%; width: 100%; text-align: center; z-index: 1; }
+        .title input { position: absolute; top: 5px; right: 5px; width: 10em; }
+        a { color: white }
+        .column { position: relative; }
+        .scrolly { position: absolute; }
+        h3 { color: white; }
+        .row { position: relative; }
+		.scrollx { position: absolute; padding: 10px; white-space: nowrap; }
+        .scrollx img { padding: 5px; }
+        .enlarge_message { display: inline-block; margin-left: 2em; font-size: 50%; }
+	</style>
+    </head>
+    <body>
+        <div class="title"><a href="resume.pdf">Danielle Powers</a><form><input type="text" name="code" id="code" /></form></div>
+        <script>
+            $(function(){
+                if( window.navigator.onLine ) {
+                    $('form').submit(function(e){
+                        var val = $('#code').val();
+                        document.cookie = "code=" + val;
+                        window.location.reload();
+                        return false;
+                    });
+
+                    $.ajax("?update").complete(function( response ){
+                        var data = window.localStorage['data'] = response.responseText;
+                        var json = JSON.parse( data );
+                        onUpdate( json );
+                    });
+                } else {
+                    $('form').hide();
+
+                    var data = window.localStorage['data'];
+                    var json = JSON.parse( data );
+                    onUpdate( json );
+                }
+
+                function onUpdate( json ) {
+                    if( 'code' in json ) {
+                        var code = json.code;
+                        $('#code').val(code);
+                    }
+
+                    var width = $(window).width();
+                    var height = $(window).height();
+
+                    $('.column').remove();
+                    var column = $('<div/>');
+                    column.addClass('column');
+                    $(document.body).append(column);
+                    var scroll = $('<div/>');
+                    scroll.addClass('scrolly');
+                    scroll.attr('data-scrollable','y');
+                    column.append(scroll);
+
+                    var path = json.path;
+                    for( var category in json ) {
+                        if( category == 'path' || category == 'code' ) { continue; }
+                        var images = json[ category ];
+
+                        var header = $('<h3/>');
+                        header.addClass('row');
+                        header.css("width", width + "px");
+                        header.html(category);
+                        scroll.append(header);
+                        var dbl = $('<div/>');
+                        dbl.addClass('enlarge_message');
+                        dbl.html("(double-click to enlarge)");
+                        header.append(dbl);
+
+                        var row = $('<div/>');
+                        row.addClass('row');
+                        row.css("width", width + "px");
+                        row.css("height", "240px");
+                        scroll.append(row);
+
+                        var div = $('<div/>');
+                        div.addClass('scrollx');
+                        div.attr('data-scrollable',"x");
+                        row.append(div);
+
+                        for( var i = 0, image; (i < images.length) && (image = images[i]); i++ ) {
+                            var href = path + '/' + category + '/' + image;
+                            var src = "?thumbnail=" + category + '/' + image;
+                            var img = $('<img/>');
+                            img.attr('src',src);
+                            img.attr('width','320');
+                            img.dblclick((function(href){return function(e){
+                                window.location = href;
+                            };})(href));
+                            div.append(img);
+                        }
+                    }
+
+                    var col = $(".column");
+                    col.css("height", height + "px");
+
+                    EasyScroller.prototype.bind();
+                }
+            });
+        </script>
+    </body>
+</html>
