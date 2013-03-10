@@ -48,7 +48,7 @@ Use:
 Anyone who accesses the site will get the non-private images.  Users can swipe through categories and images,
 double-click on images to open them in the browser or image viewer.
 
-To access private images, type your password in the text field in the upper right and hit enter.
+To access private images, type your password in the text field in the lower left and hit enter.
 
 DO NOT GIVE AWAY YOUR PASSWORD TO ANYONE.
 
