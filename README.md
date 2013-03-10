@@ -14,6 +14,7 @@ Installation:
     can be named with spaces and some special characters, dashes, parentheses, etc.
     Categories will be sorted alphabetically, so if you want a particular order, put letters
     at the beginning of the category directory names, such as:
+
         A - Visual Reference
         B - Texture Painting
         C - Fine Art
