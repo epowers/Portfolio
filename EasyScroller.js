@@ -185,8 +185,8 @@ EasyScroller.prototype.bind = function() {
 	for (var i = 0; i < elements.length; i++) {
 
 		element = elements[i];
-		var scrollable = element.dataset.scrollable;
-		var zoomable = element.dataset.zoomable || '';
+		var scrollable = element.getAttribute('data-scrollable');
+		var zoomable = element.getAttribute('data-zoomable') || '';
 		var zoomOptions = zoomable.split('-');
 		var minZoom = zoomOptions.length > 1 && parseFloat(zoomOptions[0]);
 		var maxZoom = zoomOptions.length > 1 && parseFloat(zoomOptions[1]);
